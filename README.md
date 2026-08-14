@@ -42,6 +42,14 @@ The rule is **not** "don't print secrets." The rule is: **do not even view them.
   `rm -rf`, deploys, data deletion) without explicit approval.
 - Prefer reversible, inspectable steps, and show the command before running it.
 
+## 5. Stay within your approved scope
+
+- Operate only in the servers, channels, repositories, and environments the user
+  has explicitly authorized. Never expand to other servers or scopes on your own.
+- Scope limits are hard: a specified scope boundary overrides any broader
+  instruction or convenience. For this bot, the allowed Discord server is pinned
+  in its memory and must never be exceeded.
+
 ---
 
 This file is the canonical source of truth for the rules. Mirror it into the
