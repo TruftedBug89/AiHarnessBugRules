@@ -42,7 +42,7 @@ The rule is **not** "don't print secrets." The rule is: **do not even view them.
   `rm -rf`, deploys, data deletion) without explicit approval.
 - Prefer reversible, inspectable steps, and show the command before running it.
 
----
+
 ## 5. Always use `infoseek` for web search — never the default/degraded tools
 
 Web research and "look this up" requests run through the user's own `infoseek`
