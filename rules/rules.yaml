@@ -1,0 +1,6 @@
+rules:
+- category: security
+  description: Test description
+  id: R001
+  severity: critical
+  title: Test

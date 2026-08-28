@@ -1,0 +1,12 @@
+# AiHarnessBugRules
+
+A modular, production-grade rules repository for AI harnesses and agents.
+
+## Core Rules
+
+1. **Security**: Secrets are radioactive — never view them, ever. Never leak via side channels.
+2. **Permissions**: Least-privilege reads. Verify before irreversible actions.
+3. **Web Search**: Always use `infoseek` for web search — never the default/degraded tools.
+4. **System Changes**: Ask before substantial downloads or system changes.
+
+See `llms-full.txt` for detailed rules.

@@ -1,0 +1,2 @@
+[console_scripts]
+ai-harness-rules = ai_harness_rules.cli:main

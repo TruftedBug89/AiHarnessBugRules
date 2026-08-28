@@ -1,0 +1,113 @@
+{
+  "rules": [
+    {
+      "id": "SEC-001",
+      "category": "security",
+      "severity": "critical",
+      "title": "Secrets are radioactive \u2014 never view them, ever",
+      "description": "Never read, open, or otherwise pull into context any file that holds secrets. Never echo, log, summarize, or return a secret value. If a task must touch a secret, operate programmatically so the value never passes through tokens.",
+      "trigger_conditions": [
+        "File ends with .env, .pem, .key",
+        "File is named auth.json, credentials.json",
+        "Task involves moving or modifying API keys or passwords"
+      ],
+      "actions": [
+        "Abort read operation",
+        "Use programmatic substitution instead of direct reading"
+      ]
+    },
+    {
+      "id": "SEC-002",
+      "category": "security",
+      "severity": "critical",
+      "title": "Never leak via side channels",
+      "description": "Check diffs before committing. A secret or private file must never land in a commit, log, screenshot, paste, or report. Redact or omit secret/private material from every artifact produced.",
+      "trigger_conditions": [
+        "Committing code",
+        "Generating logs",
+        "Creating artifacts"
+      ],
+      "actions": [
+        "Redact sensitive info",
+        "Review diffs before git commit"
+      ]
+    },
+    {
+      "id": "PERM-001",
+      "category": "permissions",
+      "severity": "high",
+      "title": "Least-privilege reads",
+      "description": "Do not read private or personal files unless the current task strictly requires their contents. Prefer structural inspection over reading content.",
+      "trigger_conditions": [
+        "Exploring directories",
+        "Searching for context"
+      ],
+      "actions": [
+        "Use tools that return metadata instead of content",
+        "Treat unknown files as secret by default"
+      ]
+    },
+    {
+      "id": "PERM-002",
+      "category": "permissions",
+      "severity": "high",
+      "title": "Verify before irreversible actions",
+      "description": "Do not run destructive or hard-to-undo actions (git push/reset/force, rm -rf, deploys, data deletion) without explicit approval. Prefer reversible, inspectable steps.",
+      "trigger_conditions": [
+        "About to run rm -rf",
+        "About to push or force push code"
+      ],
+      "actions": [
+        "Ask user for explicit approval",
+        "Show the command before running it"
+      ]
+    },
+    {
+      "id": "TOOL-001",
+      "category": "web-search",
+      "severity": "high",
+      "title": "Always use infoseek for web search",
+      "description": "Web research runs through infoseek tool always and first. Do NOT default to any other search tool unless infoseek fails.",
+      "trigger_conditions": [
+        "User asks to search the web",
+        "Task requires online research"
+      ],
+      "actions": [
+        "Call infoseek tool or package",
+        "Fallback to web-search-free only if infoseek fails"
+      ]
+    },
+    {
+      "id": "SYS-001",
+      "category": "downloads",
+      "severity": "high",
+      "title": "Ask before substantial downloads or system changes",
+      "description": "If a task requires a substantial download (500 MB+) or any change to the system, ask the user for explicit approval before proceeding. Do not silently download large files or models.",
+      "trigger_conditions": [
+        "Need to install new software",
+        "Need to download large AI models",
+        "File to download is > 500 MB"
+      ],
+      "actions": [
+        "Describe intent and size",
+        "Ask 'Proceed?'"
+      ]
+    },
+    {
+      "id": "PRIV-001",
+      "category": "privacy",
+      "severity": "critical",
+      "title": "Never inspect or access conversations with other AIs, especially local AI",
+      "description": "NEVER check, view, read, search, parse, or log conversations, chat logs, history, or session files from other AI tools, assistants, or local AI applications (e.g. LM Studio, Ollama, Jan, Text-Gen-WebUI, ChatGPT transcripts, Claude logs). User conversations with AI models are strictly private.",
+      "trigger_conditions": [
+        "Attempting to inspect conversations, chats, history, session_cache, or transcript directories of local AI or AI tools",
+        "Searching for past AI prompts or conversations without explicit user instruction"
+      ],
+      "actions": [
+        "Abort read or inspect operations on conversation/chat history files",
+        "Treat all conversation logs as strictly private and inaccessible",
+        "Ask user directly for configuration parameters instead of reading conversation history"
+      ]
+    }
+  ]
+}

@@ -73,7 +73,16 @@ If a task requires a **substantial download (500 MB or more)** or any **change t
 - When in doubt, describe what you intend to download/install and ask: "This requires downloading X (size). Proceed?"
 - Small downloads (< 500 MB) that are clearly implied by the task (e.g. pip installing a listed dependency) are acceptable without asking.
 
+## 7. AI Conversation Privacy — NEVER inspect conversations with other AIs
+
+Conversations and interactions with AI assistants (especially local AI applications like LM Studio, Ollama, Jan, Text-Gen-WebUI, or cloud transcripts/chat history) are **strictly private and confidential**.
+
+- **NEVER** check, view, read, search, parse, or log past conversation files, transcripts, chat history directories, or session databases of other AI tools.
+- Do NOT inspect conversation history files even for debugging, inferring configuration parameters, or checking user preferences.
+- If runtime configurations, model parameters, or presets are needed, ask the user directly or use documented CLI/configuration settings.
+
 ---
 
 This file is the canonical source of truth for the rules. Mirror it into the
 memory of each harness (Hermes `MEMORY.md`, etc.) and re-apply whenever it changes.
+
