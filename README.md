@@ -42,28 +42,7 @@ The rule is **not** "don't print secrets." The rule is: **do not even view them.
   `rm -rf`, deploys, data deletion) without explicit approval.
 - Prefer reversible, inspectable steps, and show the command before running it.
 
-
-## 5. Always use `infoseek` for web search — never the default/degraded tools
-
-Web research and "look this up" requests run through the user's own `infoseek`
-tool, **always and first**.
-
-- **Tool**: `infoseek` Python package (installed at
-  `C:\Users\lavvo\.prime\agent\kernel-venv\Lib\site-packages\infoseek`)
-  — keyless, multi-engine (15 engines), async. Call
-  `await infoseek.search(query, n=6, engines='auto', fresh=False)` or
-  `infoseek.ask(query, n=5, extract_top=2, budget=2500)` for an LLM-ready
-  context bundle. CLI: `%kernel-venv%\Scripts\infoseek.exe`.
-- **Repo (user's own)**: https://github.com/TruftedBug89/infoseek
-  Manual/other copy: `C:\Users\lavvo\Documents\infoseek`.
-- **Order of fallback** (only drop to the next if the previous fails/rate-limits):
-  1. `infoseek`
-  2. `web-search-free` (keyless DuckDuckGo/Bing/Brave/Yahoo)
-  3. `websearch` (Serper API — requires key; last resort)
-- **Do NOT** default to any other search tool, and never silently use the
-  platform's default web-search skill before trying `infoseek`.
-
-## 6. Ask before substantial downloads or system changes
+## 5. Ask before substantial downloads or system changes
 
 If a task requires a **substantial download (500 MB or more)** or any **change to the system** (installing software, downloading large model files, modifying system configs, adding services), the agent MUST ask the user for explicit approval before proceeding.
 
@@ -73,7 +52,7 @@ If a task requires a **substantial download (500 MB or more)** or any **change t
 - When in doubt, describe what you intend to download/install and ask: "This requires downloading X (size). Proceed?"
 - Small downloads (< 500 MB) that are clearly implied by the task (e.g. pip installing a listed dependency) are acceptable without asking.
 
-## 7. AI Conversation Privacy — NEVER inspect conversations with other AIs
+## 6. AI Conversation Privacy — NEVER inspect conversations with other AIs
 
 Conversations and interactions with AI assistants (especially local AI applications like LM Studio, Ollama, Jan, Text-Gen-WebUI, or cloud transcripts/chat history) are **strictly private and confidential**.
 

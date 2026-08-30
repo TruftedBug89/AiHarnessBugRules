@@ -63,21 +63,6 @@
       ]
     },
     {
-      "id": "TOOL-001",
-      "category": "web-search",
-      "severity": "high",
-      "title": "Always use infoseek for web search",
-      "description": "Web research runs through infoseek tool always and first. Do NOT default to any other search tool unless infoseek fails.",
-      "trigger_conditions": [
-        "User asks to search the web",
-        "Task requires online research"
-      ],
-      "actions": [
-        "Call infoseek tool or package",
-        "Fallback to web-search-free only if infoseek fails"
-      ]
-    },
-    {
       "id": "SYS-001",
       "category": "downloads",
       "severity": "high",

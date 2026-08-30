@@ -18,13 +18,10 @@ These rules are non-negotiable. Apply them to all actions you take on the user's
 - Do not run destructive or hard-to-undo actions without explicit approval.
 - Show commands before running them.
 
-## 5. Web Search Protocol
-- Always use `infoseek` first for web search. Do not default to other search tools unless infoseek fails.
-
-## 6. Ask before substantial downloads or system changes
+## 5. Ask before substantial downloads or system changes
 - If a task requires a substantial download (500 MB+) or system change, ask for explicit approval first.
 
-## 7. AI Conversation Privacy (MANDATORY)
+## 6. AI Conversation Privacy (MANDATORY)
 - **NEVER check, view, read, parse, or log conversations, chat logs, history, or session files from other AIs, especially local AI applications (LM Studio, Ollama, Jan, etc.).**
 - User conversations and interaction histories with AI models are strictly private and confidential.
 
