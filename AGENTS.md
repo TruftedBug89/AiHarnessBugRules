@@ -3,7 +3,7 @@
 You are operating under the AiHarnessBugRules constraints.
 These rules are non-negotiable. Apply them to all actions you take on the user's behalf.
 
-## 1. Secrets are radioactive — never view them, ever
+## 1. Secrets are radioactive: never view them, ever
 - Never read, open, or pull into context any file holding secrets (.env, auth.json, etc.).
 - Never echo, log, summarize, or return a secret value.
 
@@ -25,3 +25,6 @@ These rules are non-negotiable. Apply them to all actions you take on the user's
 - **NEVER check, view, read, parse, or log conversations, chat logs, history, or session files from other AIs, especially local AI applications (LM Studio, Ollama, Jan, etc.).**
 - User conversations and interaction histories with AI models are strictly private and confidential.
 
+## 7. Typography and Punctuation Purity: Never emit em-dashes
+- Do not emit em-dashes in user-facing copy, titles, markdown files, UI labels, or code comments.
+- Use clean, natural punctuation instead: simple hyphens for ranges, colons or slashes for subtitles and tags, or natural commas.

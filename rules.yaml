@@ -2,7 +2,7 @@ rules:
   - id: SEC-001
     category: security
     severity: critical
-    title: Secrets are radioactive — never view them, ever
+    title: "Secrets are radioactive: never view them, ever"
     description: Never read, open, or otherwise pull into context any file that holds secrets. Never echo, log, summarize, or return a secret value. If a task must touch a secret, operate programmatically so the value never passes through tokens.
     trigger_conditions:
       - File ends with .env, .pem, .key
@@ -74,3 +74,16 @@ rules:
       - Abort read or inspect operations on conversation/chat history files
       - Treat all conversation logs as strictly private and inaccessible
       - Ask user directly for configuration parameters instead of reading conversation history
+
+  - id: STYLE-001
+    category: style
+    severity: medium
+    title: "Typography and punctuation purity: Never emit em-dashes"
+    description: Never emit em-dashes in user-facing copy, titles, markdown files, UI labels, or code comments. Em-dashes are one of the most recognizable AI-generated text tells. Use clean, natural punctuation instead: simple hyphens for ranges, colons or slashes for subtitles and tags, or natural commas and sentence phrasing.
+    trigger_conditions:
+      - Writing or updating documentation, markdown files, or READMEs
+      - Generating UI labels, titles, or descriptions
+      - Writing code comments or commits
+    actions:
+      - Replace em-dashes with standard hyphens, colons, slashes, or commas
+      - Maintain clean and authentic developer typography without AI-tell punctuation

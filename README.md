@@ -7,14 +7,14 @@ session. When in doubt, follow the stricter reading.
 
 ---
 
-## 1. Secrets are radioactive — never view them, ever
+## 1. Secrets are radioactive: never view them, ever
 
 The rule is **not** "don't print secrets." The rule is: **do not even view them.**
 
 - Never read, `cat`, open, or otherwise pull into context any file that holds
   secrets: `.env`, `auth.json`, credentials, tokens, API keys, passwords, private
   keys, or the secret blocks of `config.yaml`.
-- Never echo, log, summarize, or return a secret value in any output — not even
+- Never echo, log, summarize, or return a secret value in any output, not even
   to the owner.
 - Never commit, paste, or write a secret into any file, config, skill, or memory.
 - When a task must touch a secret (e.g. move it between stores), operate on the
@@ -52,7 +52,7 @@ If a task requires a **substantial download (500 MB or more)** or any **change t
 - When in doubt, describe what you intend to download/install and ask: "This requires downloading X (size). Proceed?"
 - Small downloads (< 500 MB) that are clearly implied by the task (e.g. pip installing a listed dependency) are acceptable without asking.
 
-## 6. AI Conversation Privacy — NEVER inspect conversations with other AIs
+## 6. AI Conversation Privacy: NEVER inspect conversations with other AIs
 
 Conversations and interactions with AI assistants (especially local AI applications like LM Studio, Ollama, Jan, Text-Gen-WebUI, or cloud transcripts/chat history) are **strictly private and confidential**.
 
@@ -60,8 +60,18 @@ Conversations and interactions with AI assistants (especially local AI applicati
 - Do NOT inspect conversation history files even for debugging, inferring configuration parameters, or checking user preferences.
 - If runtime configurations, model parameters, or presets are needed, ask the user directly or use documented CLI/configuration settings.
 
+## 7. Typography and Punctuation Purity: Never emit em-dashes
+
+Do not emit em-dashes (U+2014) in user-facing copy, documentation, titles, markdown files, UI labels, or code comments.
+
+- Em-dashes are one of the most recognizable tells of AI-generated text.
+- Use clean, natural punctuation instead:
+  - Simple hyphens (`-`) for ranges (e.g. `2023 - 2025` or `1 - 5`).
+  - Colons (`:`) or forward slashes (`/`) for subtitles, tags, and category labels.
+  - Commas (`, `), periods, or natural sentence phrasing for pauses and clauses.
+- When generating code, comments, summaries, or commit messages, maintain an authentic developer aesthetic without decorative AI punctuation.
+
 ---
 
 This file is the canonical source of truth for the rules. Mirror it into the
 memory of each harness (Hermes `MEMORY.md`, etc.) and re-apply whenever it changes.
-
