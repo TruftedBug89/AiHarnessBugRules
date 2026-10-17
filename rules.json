@@ -79,6 +79,21 @@
       ]
     },
     {
+      "id": "SYS-002",
+      "category": "downloads",
+      "severity": "high",
+      "title": "Ephemeral Tool Hygiene \u2014 Remove one-off tools and utilities after use",
+      "description": "If an agent downloads, extracts, or installs temporary tools, standalone utilities, or scripts to perform a one-off task, it must completely remove and delete them after finishing. Do not leave leftover programs or utilities on the system.",
+      "trigger_conditions": [
+        "Finished a task requiring a temporary or single-use utility",
+        "Downloaded single-use binary, decompiler, patcher, or scratch script"
+      ],
+      "actions": [
+        "Delete temporary tools, installers, and extracted utility directories",
+        "Ensure system remains clean with no leftover one-off software"
+      ]
+    },
+    {
       "id": "PRIV-001",
       "category": "privacy",
       "severity": "critical",
@@ -108,6 +123,26 @@
       "actions": [
         "Replace em-dashes with standard hyphens, colons, slashes, or commas",
         "Maintain clean and authentic developer typography without AI-tell punctuation"
+      ]
+    },
+    {
+      "id": "DEV-001",
+      "category": "development",
+      "severity": "high",
+      "title": "AI-Driven Development & Agent-Friendly Architecture",
+      "description": "All code projects and large implementations must be structured for optimal agentic AI manipulation: files strictly under 500 lines (target 150-300), shallow modular folder trees, single-responsibility files, no vague grab-bag utils, explicit typing/interfaces, and deterministic single-command test verification.",
+      "trigger_conditions": [
+        "Generating a new codebase or project",
+        "Executing large code implementations or refactoring",
+        "Creating or modifying files approaching 500 lines",
+        "Designing directory structures or module architectures"
+      ],
+      "actions": [
+        "Enforce hard file limit of < 500 lines; decompose files that exceed threshold",
+        "Organize folders by domain/feature with shallow nesting (<= 3-4 levels)",
+        "Avoid grab-bag files (utils.py, helpers.js); use domain-focused modules",
+        "Define explicit types, interfaces, and schemas upfront",
+        "Include clear architectural blueprints and single-command test verification"
       ]
     }
   ]

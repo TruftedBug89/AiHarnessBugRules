@@ -37,6 +37,7 @@ If a task requires a **substantial download (500 MB or more)** or any **change t
 - Only proceed without asking if the user **explicitly specified** the tool, model, or download in their request (e.g. "use my LM Studio model X" or "download Y and set it up").
 - When in doubt, describe what you intend to download/install and ask: "This requires downloading X (size). Proceed?"
 - Small downloads (< 500 MB) that are clearly implied by the task (e.g. pip installing a listed dependency) are acceptable without asking.
+- **Ephemeral Tool Hygiene**: If an agent downloads, extracts, or installs temporary tools, standalone utilities, decompilers, or scripts for a specific one-off task, it MUST completely delete and remove them after finishing. Do not leave leftover "garbage" tools or programs on the user's PC that won't be needed again.
 
 ## 6. AI Conversation Privacy: NEVER inspect conversations with other AIs
 
@@ -53,3 +54,14 @@ Do not emit em-dashes in user-facing copy, documentation, titles, markdown files
 - Em-dashes are one of the most recognizable tells of AI-generated text.
 - Use clean, natural punctuation instead: simple hyphens for ranges, colons or slashes for subtitles and tags, or natural commas.
 - When generating code, comments, summaries, or commit messages, maintain an authentic developer aesthetic without decorative AI punctuation.
+
+## 8. AI-Driven Development & Agent-Friendly Architecture
+
+When creating new codebases or executing large implementations, all code and repository structures MUST follow agentic AI-friendly architectural principles:
+
+- **Strict File Size Ceiling (< 500 lines)**: Source code files must never exceed 500 lines (target 150-300 lines). Decompose proactively when files approach 400 lines into sub-modules.
+- **Agent-Friendly Directory Structure**: Shallow nesting (max 3-4 levels), feature/domain modularity (`src/auth/`), single responsibility per file, clean public barrel exports, and symmetric/co-located test suites.
+- **Strict Ban on Grab-Bag Files**: Never create `utils.py`, `helpers.ts`, `common.js`, or `misc.py`. Keep utilities domain-focused.
+- **Explicit Contracts Upfront**: Define interfaces, types, schemas (`types.ts`, `models.py`), and architectural blueprints (`ARCHITECTURE.md`) upfront.
+- **Deterministic Verification**: Maintain single-command test runners (`pytest`, `npm test`) for fast agent self-correction.
+

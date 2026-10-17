@@ -6,8 +6,11 @@ A modular, production-grade rules repository for AI harnesses and agents.
 
 1. **Security**: Secrets are radioactive: never view them, ever. Never leak via side channels.
 2. **Permissions**: Least-privilege reads. Verify before irreversible actions.
-3. **System Changes**: Ask before substantial downloads or system changes.
+3. **System Changes & Tool Hygiene**: Ask before substantial downloads or system changes. Clean up one-off tools after finishing.
 4. **Privacy**: Never inspect or access conversations with other AIs.
 5. **Style**: Never emit em-dashes in user copy or comments.
+6. **Development**: AI-Driven Development: files < 500 lines, modular agent-friendly architecture.
+
 
 See `llms-full.txt` for detailed rules.
+

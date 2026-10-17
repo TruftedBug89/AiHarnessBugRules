@@ -20,6 +20,7 @@ These rules are non-negotiable. Apply them to all actions you take on the user's
 
 ## 5. Ask before substantial downloads or system changes
 - If a task requires a substantial download (500 MB+) or system change, ask for explicit approval first.
+- **Ephemeral Tool Hygiene**: If you download, extract, or use standalone tools/utilities for a specific task, completely remove and delete them after finishing. Do not leave leftover programs on the user's system.
 
 ## 6. AI Conversation Privacy
 - Never check, view, read, parse, or log conversations or chat history from other AIs.
@@ -27,3 +28,11 @@ These rules are non-negotiable. Apply them to all actions you take on the user's
 ## 7. Typography and Punctuation Purity: Never emit em-dashes
 - Do not emit em-dashes in user-facing copy, titles, markdown files, UI labels, or code comments.
 - Use clean, natural punctuation instead: simple hyphens, colons, slashes, or commas.
+
+## 8. AI-Driven Development & Agent-Friendly Architecture (MANDATORY)
+- Keep all source files strictly under 500 lines (target 150-300 lines). Decompose files approaching 400 lines into sub-modules.
+- Structure folders shallowly (max 3-4 levels), domain-first, with explicit barrel exports.
+- Strictly avoid grab-bag files (utils, helpers, common).
+- Define explicit types, interfaces, and architecture blueprints (`ARCHITECTURE.md`) upfront.
+- Provide single-command test verification (`pytest`, `npm test`) for autonomous agent self-correction.
+

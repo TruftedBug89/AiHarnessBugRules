@@ -2,6 +2,7 @@ README.md
 pyproject.toml
 src/ai_harness_rules/__init__.py
 src/ai_harness_rules/cli.py
+src/ai_harness_rules/exports.py
 src/ai_harness_rules/validator.py
 src/ai_harness_rules.egg-info/PKG-INFO
 src/ai_harness_rules.egg-info/SOURCES.txt
@@ -9,3 +10,6 @@ src/ai_harness_rules.egg-info/dependency_links.txt
 src/ai_harness_rules.egg-info/entry_points.txt
 src/ai_harness_rules.egg-info/requires.txt
 src/ai_harness_rules.egg-info/top_level.txt
+tests/test_exports.py
+tests/test_schemas.py
+tests/test_validator.py

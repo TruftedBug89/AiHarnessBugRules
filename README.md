@@ -51,6 +51,7 @@ If a task requires a **substantial download (500 MB or more)** or any **change t
 - Only proceed without asking if the user **explicitly specified** the tool, model, or download in their request (e.g. "use my LM Studio model X" or "download Y and set it up").
 - When in doubt, describe what you intend to download/install and ask: "This requires downloading X (size). Proceed?"
 - Small downloads (< 500 MB) that are clearly implied by the task (e.g. pip installing a listed dependency) are acceptable without asking.
+- **Ephemeral Tool Hygiene**: If an agent downloads, extracts, or installs temporary tools, standalone utilities, decompilers, or scripts for a specific one-off task, it MUST completely delete and remove them after finishing. Do not leave leftover "garbage" tools or programs on the user's PC that won't be needed again.
 
 ## 6. AI Conversation Privacy: NEVER inspect conversations with other AIs
 
@@ -71,7 +72,33 @@ Do not emit em-dashes (U+2014) in user-facing copy, documentation, titles, markd
   - Commas (`, `), periods, or natural sentence phrasing for pauses and clauses.
 - When generating code, comments, summaries, or commit messages, maintain an authentic developer aesthetic without decorative AI punctuation.
 
+## 8. AI-Driven Development & Agent-Friendly Architecture
+
+When creating new codebases or executing large implementations, all code and repository structures MUST follow agentic AI-friendly architectural principles to maximize reasoning capability, avoid tool truncation, and prevent hallucinated edits.
+
+- **Strict File Size Ceiling (< 500 lines)**:
+  - Source code files must **never exceed 500 lines**.
+  - Target sweet spot: **150–300 lines**.
+  - Decompose proactively: when any file approaches 400 lines, split it into cohesive sub-modules.
+  - *Why*: Prevents context window saturation, tool viewing truncation, diff hallucination, and high token costs.
+- **Agent-Friendly Directory Structure**:
+  - **Shallow hierarchy**: Keep folder nesting shallow (maximum 3 to 4 directory levels).
+  - **Feature / Domain modularity**: Group files by domain/feature (e.g. `src/auth/`, `src/billing/`) rather than large monolithic folders.
+  - **Single Responsibility Principle (SRP)**: One primary class, model, or cohesive group of pure functions per file.
+  - **Strictly ban grab-bag catch-all files**: Never create `utils.py`, `helpers.ts`, `common.js`, or `misc.py`. Utilities must be narrowly scoped by domain (e.g. `date_formatters.ts`, `token_codec.py`).
+  - **Predictable barrel exports**: Provide clean public index files (`index.ts`, `__init__.py`) so symbols are discoverable without digging through internal implementation files.
+  - **Mirrored / Co-located tests**: Unit tests must sit alongside source code or mirror the source path 1:1 (`src/auth/jwt.ts` -> `tests/auth/test_jwt.ts`).
+- **Explicit Types & Contracts Upfront**:
+  - Define interfaces, types, and schemas in dedicated modules (`types.ts`, `models.py`) so agents can understand public contracts without reading full method implementations.
+- **Bite-Sized Atomic Pure Functions**:
+  - Keep functions concise (under 40–50 lines). Prefer pure functions over implicit global state to ensure atomic, error-free diff replacements.
+- **Architectural Blueprint (`ARCHITECTURE.md`)**:
+  - Multi-file projects must include an architectural overview detailing component responsibilities, data flow, and entry points.
+- **Deterministic Single-Command Verification**:
+  - Every project must support a fast, single-command test and lint run (`pytest`, `npm test`, etc.) with informative error outputs for autonomous agent self-correction.
+
 ---
 
 This file is the canonical source of truth for the rules. Mirror it into the
 memory of each harness (Hermes `MEMORY.md`, etc.) and re-apply whenever it changes.
+
